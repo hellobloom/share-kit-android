@@ -68,10 +68,11 @@ To use the share-kit `RequestButton` in your project, please do the following
             e.printStackTrace();
         }
 
-        String appCallbackUrl = "https://google.com";
+        // this is the callback-url/deep link for your app which will be used by the bloom app to re-direct you to your after the request is handled
+        String callbackUrl = "https://google.com";
 
-        // initialize the button
-        Button bloomButton = new ShareKit().RequestButton(this, requestData, appCallbackUrl);
+        // initialize the button by passsing the activity, bloom requestData and your app's callback-url
+        Button bloomButton = new ShareKit().RequestButton(this, requestData, callbackUrl);
 
         //add button to the layout
         layout.addView(bloomButton);
@@ -80,9 +81,25 @@ To use the share-kit `RequestButton` in your project, please do the following
         layout.setPadding(30,50,10,10);
     }
 ```
-3. Finally build and install the apk into a device or emulator and once your app pops up, you should have the `RequestButton` displayed as below
+3. Please note for a new Android Studio project, the layout created will be a `ConstraintLayout` instead of a `LinearLayout` as shown above. Also please add an id to the layout xml file before initializing it so that it looks as follows
+```
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/example_activity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+   
+</android.support.constraint.ConstraintLayout>
+```
+ - And then initialize the layout as a `ConstraintLayout` instead of a `LinearLayout` i.e. `ConstraintLayout layout = findViewById(R.id.example_activity);`
+ - After this everything else in the above example will remain the same.
+4. Finally build and install the apk into a device or emulator and once your app pops up, you should have the `RequestButton` displayed as below
    ![request-button](images/requestbutton.png)
-4. Also the first time you tap the button, you'll be presented with a variety of options as shown below. So please select `Open With -> Bloom -> ALWAYS` so that it defaults to opening the Bloom App if its installed instead of a browser.
+5. Also the first time you tap the button, you'll be presented with a variety of options as shown below. So please select `Open With -> Bloom -> ALWAYS` so that it defaults to opening the Bloom App if its installed instead of a browser.
 	![first-time-open](images/firsttime.png)
 
 ## Testing
