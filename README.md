@@ -17,7 +17,7 @@ Android implementation of [Share Kit](https://github.com/hellobloom/share-kit#re
 2. Add the `sharekit.aar` library generate above by doing the [following in your Android Studio project](https://developer.android.com/studio/projects/android-library)
 	- Click `File -> New -> New Module`.
     - Click `Import .JAR/.AAR Package` then click Next.
-    - Enter the location of the compiled `sharelit.aar` file then click Finish.
+    - Enter the location of the compiled `sharekit.aar` file then click Finish.
     - Then make sure the `sharekit` library is added in your `settings.gradle` file i.e. `include ':app', ':sharekit'`
     - In your projects `build.gradle` file add a new line for the `sharekit` lib in the dependencies block 
     	i.e. 
